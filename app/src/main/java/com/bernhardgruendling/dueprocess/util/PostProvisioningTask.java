@@ -39,6 +39,7 @@ public class PostProvisioningTask {
         devicePolicyManager.addUserRestriction(Util.getAdminComponentName(context), UserManager.DISALLOW_UNIFIED_PASSWORD);
 
         installDefaultApps();
+        autoGrantRequestedPermissionsToSelf();
         appSettings.setAppMarkedSensitive("com.android.vending", true);
 
         HidingUtil.hideLauncherIcon(context, HidingUtil.MAIN_LAUNCH_ACTIVITY);
