@@ -23,10 +23,10 @@ import com.bernhardgruendling.dueprocess.AppSettings;
 import com.bernhardgruendling.dueprocess.R;
 import com.bernhardgruendling.dueprocess.ui.management.CodeConfigActivity;
 import com.bernhardgruendling.dueprocess.util.Util;
-import com.github.paolorotolo.appintro.ISlideBackgroundColorHolder;
-import com.github.paolorotolo.appintro.ISlidePolicy;
+import com.github.appintro.SlideBackgroundColorHolder;
+import com.github.appintro.SlidePolicy;
 
-public class SampleSlideFragment extends Fragment implements ISlideBackgroundColorHolder, ISlidePolicy {
+public class SampleSlideFragment extends Fragment implements SlideBackgroundColorHolder, SlidePolicy {
 
     private static final String ARG_LAYOUT_RES_ID = "layoutResId";
     private static final String ARG_BUTTON_RES_ID = "buttonResId";
@@ -96,6 +96,11 @@ public class SampleSlideFragment extends Fragment implements ISlideBackgroundCol
     @Override
     public int getDefaultBackgroundColor() {
         return ContextCompat.getColor(context, R.color.colorPrimaryDark);
+    }
+
+    @Override
+    public int getDefaultBackgroundColorRes() {
+        return R.color.colorPrimaryDark;
     }
 
     @Override
