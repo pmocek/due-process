@@ -32,7 +32,7 @@ public class NotificationUtil {
                 .setSmallIcon(R.drawable.ic_app)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
                 .setContentIntent(PendingIntent.getActivity(context, -1,
-                        intent, 0))
+                        intent, PendingIntent.FLAG_IMMUTABLE))
                 .build();
         notificationManager.notify(notificationId, notification);
     }
