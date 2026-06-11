@@ -53,9 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="5"
-                        android:gravity="center"
-                        android:text="App is currently hidden."
-                        android:textAlignment="viewStart" />
+                        android:text="App is currently hidden." />
 
                 </TableRow>
 
@@ -75,9 +73,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:gravity="center"
-                        android:text="App is currently visible."
-                        android:textAlignment="viewStart" />
+                        android:text="App is currently visible." />
                 </TableRow>
 
             </TableLayout>
@@ -108,9 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="5"
-                        android:gravity="center"
-                        android:text="App will be hidden when lockdown is triggered."
-                        android:textAlignment="viewStart" />
+                        android:text="App will be hidden when lockdown is triggered." />
 
                 </TableRow>
 
@@ -131,9 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="5"
-                        android:gravity="center"
-                        android:text="App will stay visible when lockdown is triggered."
-                        android:textAlignment="viewStart" />
+                        android:text="App will stay visible when lockdown is triggered." />
 
                 </TableRow>
 
