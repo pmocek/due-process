@@ -23,3 +23,10 @@ The app uses the work profile feature of Android and runs inside of it. Android 
 The APK can be acquired [here](https://github.com/brnhrd/DueProcess/releases), including a guided setup after installation. This enables users to perform downloads without attribution to their person.
 
 This repository holds its source code. Advanced users can review the source code and make changes to it, which can further increase plausible deniability. After that, the application package has to be built from the code. For recommended changes see chapter 4.1 in the thesis.
+
+## Build Environment Requirements
+To build this project and run tests, you must have the following environment variables and SDKs configured:
+- **Android SDK**: Install the Android SDK (API 36). Set the `ANDROID_HOME` environment variable to your SDK path, or define `sdk.dir=/path/to/android/sdk` in your `local.properties`.
+- **Java Development Kit (JDK)**: A full JDK 21 (e.g. Temurin or OpenJDK) with `javac` is required. Set the `JAVA_HOME` environment variable to your JDK path, or define `org.gradle.java.home=/path/to/jdk21` in your `gradle.properties`.
+Note: A simple JRE is not sufficient to compile the codebase.
+
