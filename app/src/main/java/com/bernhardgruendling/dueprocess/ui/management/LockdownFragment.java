@@ -62,15 +62,13 @@ public class LockdownFragment extends Fragment implements View.OnLongClickListen
 
     @Override
     public boolean onLongClick(View view) {
-        switch (view.getId()) {
-            case R.id.bWipeNow:
-                showConfirmationDialogue();
-                break;
-            case R.id.bLockdownNow:
-                Runnable runnable = () -> HidingUtil.lockdownNow(context);
-                new Thread(runnable).start();
-                ((Activity) context).finishAndRemoveTask();
-                break;
+        int id = view.getId();
+        if (id == R.id.bWipeNow) {
+            showConfirmationDialogue();
+        } else if (id == R.id.bLockdownNow) {
+            Runnable runnable = () -> HidingUtil.lockdownNow(context);
+            new Thread(runnable).start();
+            ((Activity) context).finishAndRemoveTask();
         }
         return true;
     }
@@ -87,20 +85,18 @@ public class LockdownFragment extends Fragment implements View.OnLongClickListen
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.bHelpLockdown:
-                LayoutInflater inflater;
-                inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.slide_ending_lockdown, null);
-                View bottomSpace = layout.findViewById(R.id.bottomSpace1);
-                layout.removeView(bottomSpace);
-                AlertDialog.Builder builder =
-                        new AlertDialog.Builder(context).
-                                setPositiveButton(android.R.string.yes, (dialog, which) -> dialog.dismiss()).
-                                setView(layout);
+        if (view.getId() == R.id.bHelpLockdown) {
+            LayoutInflater inflater;
+            inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.slide_ending_lockdown, null);
+            View bottomSpace = layout.findViewById(R.id.bottomSpace1);
+            layout.removeView(bottomSpace);
+            AlertDialog.Builder builder =
+                    new AlertDialog.Builder(context).
+                            setPositiveButton(android.R.string.yes, (dialog, which) -> dialog.dismiss()).
+                            setView(layout);
 
-                builder.create().show();
-                break;
+            builder.create().show();
         }
     }
 

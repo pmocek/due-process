@@ -88,12 +88,11 @@ public class AppListAdapter extends RecyclerView.Adapter<AppListAdapter.ViewHold
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.toggleHidden:
-                    itemListener.recyclerViewToggleHiddenClicked(view, appInfos.get(this.getLayoutPosition()));
-                    break;
-                case R.id.switchSensitive:
-                    itemListener.recyclerViewSwitchSensitiveClicked(view, appInfos.get(this.getLayoutPosition()), ((Switch) view).isChecked());
+            int id = view.getId();
+            if (id == R.id.toggleHidden) {
+                itemListener.recyclerViewToggleHiddenClicked(view, appInfos.get(this.getLayoutPosition()));
+            } else if (id == R.id.switchSensitive) {
+                itemListener.recyclerViewSwitchSensitiveClicked(view, appInfos.get(this.getLayoutPosition()), ((Switch) view).isChecked());
             }
         }
     }

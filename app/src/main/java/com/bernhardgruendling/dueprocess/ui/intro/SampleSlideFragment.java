@@ -64,20 +64,16 @@ public class SampleSlideFragment extends Fragment implements ISlideBackgroundCol
             button = view.findViewById(buttonResId);
             button.setOnClickListener(view1 -> {
                 Intent intent;
-                switch (buttonResId) {
-                    case R.id.bSetSepChallenge:
-                        intent = new Intent(DevicePolicyManager.ACTION_SET_NEW_PASSWORD);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        context.startActivity(intent);
-                        break;
-                    case R.id.bGrantPermission:
-                        intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
-                        startActivityForResult(intent, 0);
-                        break;
-                    case R.id.bSetPattern:
-                        intent = new Intent(context, CodeConfigActivity.class);
-                        startActivityForResult(intent, 1);
-                        break;
+                if (buttonResId == R.id.bSetSepChallenge) {
+                    intent = new Intent(DevicePolicyManager.ACTION_SET_NEW_PASSWORD);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
+                } else if (buttonResId == R.id.bGrantPermission) {
+                    intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + context.getPackageName()));
+                    startActivityForResult(intent, 0);
+                } else if (buttonResId == R.id.bSetPattern) {
+                    intent = new Intent(context, CodeConfigActivity.class);
+                    startActivityForResult(intent, 1);
                 }
             });
         }
@@ -111,14 +107,13 @@ public class SampleSlideFragment extends Fragment implements ISlideBackgroundCol
 
     @Override
     public boolean isPolicyRespected() {
-        switch (layoutResId) {
-            case R.layout.slide_separate_challenge:
-                return !Util.getDevicePolicyManager(context).isUsingUnifiedPassword(Util.getAdminComponentName(context));
-            case R.layout.slide_overlay_permission:
-                return Settings.canDrawOverlays(context);
-            case R.layout.slide_pattern_setup:
-                AppSettings appSettings = new AppSettings(context);
-                return !appSettings.getUnlockCode().contains(-1);
+        if (layoutResId == R.layout.slide_separate_challenge) {
+            return !Util.getDevicePolicyManager(context).isUsingUnifiedPassword(Util.getAdminComponentName(context));
+        } else if (layoutResId == R.layout.slide_overlay_permission) {
+            return Settings.canDrawOverlays(context);
+        } else if (layoutResId == R.layout.slide_pattern_setup) {
+            AppSettings appSettings = new AppSettings(context);
+            return !appSettings.getUnlockCode().contains(-1);
         }
         return true;
     }
