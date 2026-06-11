@@ -1,5 +1,6 @@
 package com.bernhardgruendling.dueprocess.util;
 
+import android.Manifest;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -120,17 +121,12 @@ public class HidingUtilTest {
             verify(mockDevicePolicyManager, times(1))
                     .setPermissionGrantState(eq(mockAdminComponentName),
                                             eq(packageName),
-                                            eq("android.permission.READ_MEDIA_IMAGES"),
+                                            eq(Manifest.permission.READ_EXTERNAL_STORAGE),
                                             eq(DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED));
             verify(mockDevicePolicyManager, times(1))
                     .setPermissionGrantState(eq(mockAdminComponentName),
                                             eq(packageName),
-                                            eq("android.permission.READ_MEDIA_VIDEO"),
-                                            eq(DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED));
-            verify(mockDevicePolicyManager, times(1))
-                    .setPermissionGrantState(eq(mockAdminComponentName),
-                                            eq(packageName),
-                                            eq("android.permission.READ_MEDIA_AUDIO"),
+                                            eq(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                                             eq(DevicePolicyManager.PERMISSION_GRANT_STATE_GRANTED));
         }
     }
