@@ -18,6 +18,7 @@ public class NotificationUtil {
     public static final int DEFAULT_NOTIFICATION_ID = 1;
     private static final String CHANNEL_NAME = "Default";
 
+    @android.annotation.SuppressLint({"MissingPermission", "NotificationPermission"})
     public static void showNotification(
             Context context, String title, String msg, int notificationId, Intent intent) {
         if (intent == null) {
