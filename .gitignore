@@ -113,3 +113,17 @@ fabric.properties
 *.db
 .beads-credential-key
 .beads/proxieddb/
+
+# Local Android SDK
+android-sdk/
+
+# Aider chat history and cache
+.aider.*
+
+# Agent runtimes, caches, and logs (preserving tracked agent skills)
+.agents/*
+!.agents/skills/
+
+# Extracted reference files
+docs/thesis_text.txt
+
